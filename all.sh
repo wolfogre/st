@@ -1,4 +1,8 @@
-hello() {
-	echo "hello shell tools"
+st() {
+	case $1 in
+	version)
+		echo 'st version 0.0.1'
+	;;
+	esac
 }
-export -f hello
+export -f st
