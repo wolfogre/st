@@ -1,3 +1,2 @@
-hello)
+#show hello
 echo hello st!
-;;

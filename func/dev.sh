@@ -1,13 +1,3 @@
-
-st() {
-case $1 in
-
-version)
-echo st version 0.0.0.26, build time Thu Dec 7 10:25:35 CST 2017
-;;
-
-dev)
-set -e
 case $2 in
 
 clone)
@@ -47,14 +37,3 @@ dev clone
 ;;
 
 esac
-set +e
-;;
-hello)
-set -e
-#show hello
-echo hello st!
-set +e
-;;
-
-esac
-}

@@ -1,0 +1,10 @@
+*
+!.gitignore
+!*.sh
+!LICENSE
+!README.md
+!version
+
+!/func
+/func/*
+!/func/*.sh
