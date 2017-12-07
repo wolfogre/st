@@ -61,7 +61,7 @@ if [ ! -f $AIM ]; then
         	return
 	fi
 fi
-sh $AIM `echo $* | cut -d " " -f1 --complement`
+sh $AIM `echo $* | cut -s -d " " -f1 --complement`
 ;;
 esac
 }

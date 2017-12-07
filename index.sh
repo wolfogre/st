@@ -5,7 +5,7 @@ st() {
 case $1 in
 
 version)
-echo st version 0.3.2, build time Thu Dec 7 17:57:59 CST 2017
+echo st version 0.3.3, build time Thu Dec 7 18:08:27 CST 2017
 ;;
 
 help)
@@ -14,7 +14,7 @@ echo -e "
   version     show st version
   clean       clean local functions cache
   count-conn  count connections of specified port
-  hello       show hello
+  hello-d     show hello
   install-go  install various version of golang
   show        show function detail
 
@@ -30,7 +30,7 @@ if [ ! -f $AIM ]; then
         	return
 	fi
 fi
-sh $AIM `echo $* | cut -d " " -f1 --complement`
+sh $AIM `echo $* | cut -s -d " " -f1 --complement`
 ;;
 esac
 }
