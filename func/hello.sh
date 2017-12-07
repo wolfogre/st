@@ -1,2 +1,4 @@
+#!/bin/sh
 #show hello
-echo hello st!
+
+echo hello st! $*

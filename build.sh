@@ -11,7 +11,7 @@ done
 let i-=1
 let VERSION_ARR[${i}]+=1
 
-VERSION=${VERSION_ARR[1]}
+VERSION=${VERSION_ARR[0]}
 for ((i=1; i<${#VERSION_ARR[*]}; i++)) {
 	VERSION=${VERSION}.${VERSION_ARR[${i}]}
 }
@@ -21,22 +21,42 @@ echo build $VERSION ...
 
 BUILD_TIME=`date`
 
-rm -rf all.sh
+rm -rf index.sh
 echo '''
+rm /tmp/st_cache_$USER -rf
+mkdir /tmp/st_cache_$USER
 st() {
 case $1 in
 
 version)
 echo 'st version $VERSION, build time $BUILD_TIME'
 ;;
-''' >> all.sh
 
+help)
+echo -e "
+''' >> index.sh
+
+echo -e "\tversion\tshow st version" >> index.sh
 for v in `ls func`; do
-	echo "${v%.*})" >> all.sh
-	echo "set -e" >> all.sh
-	cat func/$v >> all.sh
-	echo "set +e" >> all.sh
-	echo ";;" >> all.sh
+	echo -e "\t${v%.*}\t"`head -n 2 func/$v | tail -n 1 | sed "s/#//"` >> index.sh
 done
 
-echo -e "\nesac\n}" >> all.sh
+echo -e '''
+"
+;;
+
+*)
+AIM=/tmp/st_cache_$USER/$1.sh
+if [ ! -f $AIM ]; then
+	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh` != "200" ]]; then
+        	rm -rf $AIM
+		echo "cant not find $1 to run"
+        	return
+	fi
+fi
+sh $AIM `echo $* | cut -d " " -f1 --complement`
+;;
+esac
+}
+''' >> index.sh
+
