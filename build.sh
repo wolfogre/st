@@ -39,6 +39,9 @@ echo -e "
 HELP_TMP=`mktemp`
 echo -e "\tversion\tshow st version" >> $HELP_TMP
 for v in `ls func`; do
+	if [[ $v = "dev.sh" ]]; then
+		continue
+	fi
 	echo -e "\t${v%.*}\t"`head -n 2 func/$v | tail -n 1 | sed "s/#//"` >> $HELP_TMP
 done
 
