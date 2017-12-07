@@ -5,14 +5,14 @@ st() {
 case $1 in
 
 version)
-echo st version 0.1.17, build time Thu Dec 7 15:41:11 CST 2017
+echo st version 0.1.18, build time Thu Dec 7 15:46:49 CST 2017
 ;;
 
 help)
 echo -e "
 
 	version	show st version
-	dev	
+	dev	developing tools for st
 	echo	echo `echo $* | cut -d ' ' -f1 --complement`
 	hello	show hello
 
