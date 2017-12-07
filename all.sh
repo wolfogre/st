@@ -3,7 +3,7 @@ st() {
 case $1 in
 
 version)
-echo st version 0.0.0.26, build time Thu Dec 7 10:25:35 CST 2017
+echo st version 0.0.0.31, build time Thu Dec 7 10:59:11 CST 2017
 ;;
 
 dev)
@@ -23,13 +23,24 @@ git clone git@github.com:wolfogre/st.git
 ;;
 *)
 echo unknown protocol
-exit 1
+return
 ;;
 esac
 
 cd st
 ls
+return
 ;;
+
+esac
+
+
+if [[ `git config --get remote.origin.url` != "git@github.com:wolfogre/st.git" && `git config --get remote.origin.url` != "https://github.com/wolfogre/st.git" ]]; then
+	echo please go to st repo dir
+	return
+fi
+
+case $2 in
 
 commit)
 git add --all
@@ -39,6 +50,16 @@ git commit -m "(`cat version`) $MSG"
 git push origin master
 ;;
 
+version)
+echo current version is `cat version`
+read -p "new version (empty to skip):" NEWV
+if [[ -z "$NEWV" ]]; then
+	echo skipped
+else
+	echo $NEWV".0" > version
+	echo current version is `cat version`
+fi
+;;
 
 *)
 echo "
