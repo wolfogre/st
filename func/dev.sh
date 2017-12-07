@@ -1,4 +1,9 @@
-case $2 in
+#!/bin/sh
+#developing tools for st
+
+set -e
+
+case $1 in
 
 clone)
 read -p "use ssh or https?" PROT
@@ -30,7 +35,7 @@ if [[ `git config --get remote.origin.url` != "git@github.com:wolfogre/st.git" &
 	return
 fi
 
-case $2 in
+case $1 in
 
 commit)
 git add --all
@@ -54,6 +59,7 @@ fi
 *)
 echo "
 dev clone
+dev commit
 "
 ;;
 
