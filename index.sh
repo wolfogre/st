@@ -5,7 +5,7 @@ st() {
 case $1 in
 
 version)
-echo st version 0.3.3, build time Thu Dec 7 18:08:27 CST 2017
+echo st version 0.3.4, build time Thu Dec 7 18:20:22 CST 2017
 ;;
 
 help)
@@ -14,7 +14,7 @@ echo -e "
   version     show st version
   clean       clean local functions cache
   count-conn  count connections of specified port
-  hello-d     show hello
+  hello       show hello
   install-go  install various version of golang
   show        show function detail
 
