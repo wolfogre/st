@@ -36,10 +36,14 @@ help)
 echo -e "
 ''' >> index.sh
 
-echo -e "\tversion\tshow st version" >> index.sh
+HELP_TMP=`mktemp`
+echo -e "\tversion\tshow st version" >> $HELP_TMP
 for v in `ls func`; do
-	echo -e "\t${v%.*}\t"`head -n 2 func/$v | tail -n 1 | sed "s/#//"` >> index.sh
+	echo -e "\t${v%.*}\t"`head -n 2 func/$v | tail -n 1 | sed "s/#//"` >> $HELP_TMP
 done
+
+cat $HELP_TMP | column -t -s $'\t' >> index.sh
+rm -f $HELP_TMP
 
 echo -e '''
 "
