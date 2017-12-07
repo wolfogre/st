@@ -3,7 +3,7 @@
 
 set -e
 
-PORT=$!
+PORT=$1
 if [ -z $PORT ]; then
 	read -p "which port?" PORT
 fi
