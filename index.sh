@@ -5,7 +5,7 @@ st() {
 case $1 in
 
 version)
-echo st version 0.3.4, build time Thu Dec 7 18:20:22 CST 2017
+echo st version 0.3.5, build time Fri Dec 8 09:58:55 CST 2017
 ;;
 
 help)
