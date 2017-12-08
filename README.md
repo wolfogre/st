@@ -21,4 +21,4 @@ New tools will be added one by one.
 
 ## uninstall
 
-Close you session and `st` disappear without any thing left.
+Close you session and `st` disappear without anything left.
