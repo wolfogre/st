@@ -3,7 +3,7 @@
 
 set -e
 
-yum install -y mercurial autoconf automake libtool gcc-c++
+yum install -y make mercurial autoconf automake libtool gcc-c++
 
 TMPDIR=`mktemp -d`
 cd $TMPDIR
