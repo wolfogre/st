@@ -5,7 +5,7 @@ st() {
 case $1 in
 
 version)
-echo st version 0.3.8, build time Mon Dec 11 17:05:45 CST 2017
+echo st version 0.3.9, build time Mon Dec 11 20:13:18 CST 2017
 ;;
 
 help)
@@ -16,6 +16,7 @@ echo -e "
   count-conn   count connections of specified port
   hello        show hello
   install-go   install various version of golang
+  install-svn  install svn 1.7, 1.8 or 1.9
   install-zmq  install zeromq 4.1.2
   show         show function detail
 
