@@ -5,18 +5,19 @@ st() {
 case $1 in
 
 version)
-echo st version 0.3.5, build time Fri Dec 8 09:58:55 CST 2017
+echo st version 0.3.7, build time Mon Dec 11 16:53:31 CST 2017
 ;;
 
 help)
 echo -e "
 
-  version     show st version
-  clean       clean local functions cache
-  count-conn  count connections of specified port
-  hello       show hello
-  install-go  install various version of golang
-  show        show function detail
+  version      show st version
+  clean        clean local functions cache
+  count-conn   count connections of specified port
+  hello        show hello
+  install-go   install various version of golang
+  install-zmq  install zeromq 4.1.2
+  show         show function detail
 
 "
 ;;
