@@ -5,21 +5,22 @@ st() {
 case $1 in
 
 version)
-echo st version 0.3.11, build time Mon Dec 11 20:20:36 CST 2017
+echo st version 0.3.13, build time Wed Dec 13 09:53:10 CST 2017
 ;;
 
 help)
 echo -e "
 
-  version      show st version
-  adjust-time  adjust date time
-  clean        clean local functions cache
-  count-conn   count connections of specified port
-  hello        show hello
-  install-go   install various version of golang
-  install-svn  install svn 1.7, 1.8 or 1.9
-  install-zmq  install zeromq 4.1.2
-  show         show function detail
+  version         show st version
+  adjust-time     adjust date time
+  clean           clean local functions cache
+  count-conn      count connections of specified port
+  hello           show hello
+  install-docker  install docker-ce and set mirror acceleration address
+  install-go      install various version of golang
+  install-svn     install svn 1.7, 1.8 or 1.9
+  install-zmq     install zeromq 4.1.2
+  show            show function detail
 
 "
 ;;
