@@ -12,7 +12,7 @@ if [ ! -f $AIM ]; then
         if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh` != "200" ]]; then
                 rm -rf $AIM
                 echo "cant not find $1 to run"
-                return
+                exit 1
         fi
 	cat $AIM
 else

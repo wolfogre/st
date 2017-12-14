@@ -26,7 +26,14 @@ echo '''
 rm /tmp/st_cache_$USER -rf
 mkdir /tmp/st_cache_$USER
 st() {
-case $1 in
+
+ARGS1=$1
+
+if [[ -z "$ARGS1" ]]; then
+	ARGS1="help"
+fi
+
+case $ARGS1 in
 
 version)
 echo 'st version $VERSION, build time $BUILD_TIME'
@@ -38,6 +45,7 @@ echo -e "
 
 HELP_TMP=`mktemp`
 echo -e "\tversion\tshow st version" >> $HELP_TMP
+echo -e "\thelp\tshow help infomations" >> $HELP_TMP
 for v in `ls func`; do
 	if [[ $v = "dev.sh" ]]; then
 		continue
@@ -45,22 +53,29 @@ for v in `ls func`; do
 	echo -e "\t${v%.*}\t"`head -n 2 func/$v | tail -n 1 | sed "s/#//"` >> $HELP_TMP
 done
 
-cat $HELP_TMP | column -t -s $'\t' >> index.sh
-rm -f $HELP_TMP
+cat $HELP_TMP | column -t -s $'\t' | sort -o $HELP_TMP
+INTERNAL_FUNC="(show|version|help|clean)"
+cat $HELP_TMP | egrep "^  $INTERNAL_FUNC" >> index.sh
+echo "" >> index.sh
+cat $HELP_TMP | egrep "^  $INTERNAL_FUNC" -v >> index.sh
+
+#rm -f $HELP_TMP
 
 echo -e '''
 "
 ;;
 
 *)
+printf "loading $1 ... "
 AIM=/tmp/st_cache_$USER/$1.sh
 if [ ! -f $AIM ]; then
-	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh` != "200" ]]; then
+	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh?v='$VERSION'` != "200" ]]; then
         	rm -rf $AIM
 		echo "cant not find $1 to run"
         	return
 	fi
 fi
+echo "loaded"
 sh $AIM `echo $* | cut -s -d " " -f1 --complement`
 ;;
 esac
