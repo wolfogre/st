@@ -66,16 +66,16 @@ echo -e '''
 ;;
 
 *)
-printf "loading $1 ... "
 AIM=/tmp/st_cache_$USER/$1.sh
 if [ ! -f $AIM ]; then
+	printf "loading $1 ... "
 	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh?v='$VERSION'` != "200" ]]; then
         	rm -rf $AIM
 		echo "cant not find $1 to run"
         	return
 	fi
+	echo "loaded"
 fi
-echo "loaded"
 sh $AIM `echo $* | cut -s -d " " -f1 --complement`
 ;;
 esac

@@ -12,7 +12,7 @@ fi
 case $ARGS1 in
 
 version)
-echo st version 0.4.21, build time Thu Dec 14 14:03:51 CST 2017
+echo st version 0.4.22, build time Thu Dec 14 14:15:51 CST 2017
 ;;
 
 help)
@@ -34,16 +34,16 @@ echo -e "
 ;;
 
 *)
-printf "loading $1 ... "
 AIM=/tmp/st_cache_$USER/$1.sh
 if [ ! -f $AIM ]; then
-	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh?v=0.4.21` != "200" ]]; then
+	printf "loading $1 ... "
+	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh?v=0.4.22` != "200" ]]; then
         	rm -rf $AIM
 		echo "cant not find $1 to run"
         	return
 	fi
+	echo "loaded"
 fi
-echo "loaded"
 sh $AIM `echo $* | cut -s -d " " -f1 --complement`
 ;;
 esac
