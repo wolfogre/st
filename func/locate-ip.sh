@@ -3,6 +3,11 @@
 
 set -e
 
+if ! command -v jq >/dev/null 2>&1; then 
+	echo jq: command not found
+	exit 1 
+fi
+
 IP=$1
 
 if [[ -z $IP ]]; then
