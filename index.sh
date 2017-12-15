@@ -12,7 +12,7 @@ fi
 case $ARGS1 in
 
 version)
-echo st version 0.4.25, build time Thu Dec 14 16:11:50 CST 2017
+echo st version 0.4.26, build time Fri Dec 15 11:00:26 CST 2017
 ;;
 
 help)
@@ -29,6 +29,7 @@ echo -e "
   install-go      install various version of golang
   install-svn     install svn 1.7, 1.8 or 1.9
   install-zmq     install zeromq 4.1.2
+  locate-ip       locate ip region
 
 "
 ;;
