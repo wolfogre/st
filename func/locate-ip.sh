@@ -6,14 +6,10 @@ set -e
 IP=$1
 
 if [[ -z $IP ]]; then
-	read -p "what ip('localhost' for yourself)?" IP
+	read -p "what ip(empty for yourself)?" IP
 fi
 
 if [[ -z $IP ]]; then
-        exit 1
-fi
-
-if [[ $IP = "localhost" ]]; then
 	TEMP=`mktemp`
 	STATUS_CODE=`curl -sS -o $TEMP -w "%{http_code}" ifconfig.me`
 	if [[ $STATUS_CODE != "200" ]]; then
