@@ -82,3 +82,12 @@ esac
 }
 ''' >> index.sh
 
+. index.sh
+
+cp -f README.origin.md README.md
+
+echo "\`\`\`" >> README.md
+st help >> README.md
+echo "\`\`\`" >> README.md
+
+

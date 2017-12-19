@@ -22,3 +22,24 @@ New tools will be added one by one.
 ## uninstall
 
 Close you session and `st` disappear without anything left.
+
+## st help
+
+```
+
+
+  clean           clean local functions cache
+  help            show help infomations
+  show            show function detail
+  version         show st version
+
+  adjust-time     adjust date time
+  count-conn      count connections of specified port
+  install-docker  install docker-ce and set mirror acceleration address
+  install-go      install various version of golang
+  install-svn     install svn 1.7, 1.8 or 1.9
+  install-zmq     install zeromq 4.1.2
+  locate-ip       locate ip region
+
+
+```

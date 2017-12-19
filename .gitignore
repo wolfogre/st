@@ -3,6 +3,7 @@
 !*.sh
 !LICENSE
 !README.md
+!README.origin.md
 !version
 
 !/func
