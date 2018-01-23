@@ -4,7 +4,7 @@ if [[ -n "$ST_TEMP" ]]; then
 fi
 
 
-ST_TEMP=`mktemp -d "/tmp/st.tmp.XXXXX"`
+export ST_TEMP=`mktemp -d "/tmp/st.tmp.XXXXX"`
 trap "rm $ST_TEMP -rf" EXIT
 
 st() {
@@ -18,7 +18,7 @@ fi
 case $ARGS1 in
 
 version)
-echo st version 0.5.4, build time Tue Jan 23 14:34:42 CST 2018
+echo st version 0.5.5, build time Tue Jan 23 14:41:12 CST 2018
 ;;
 
 help)

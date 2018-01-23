@@ -28,7 +28,7 @@ if [[ -n "$ST_TEMP" ]]; then
 fi
 
 
-ST_TEMP=`mktemp -d "/tmp/st.tmp.XXXXX"`
+export ST_TEMP=`mktemp -d "/tmp/st.tmp.XXXXX"`
 trap "rm $ST_TEMP -rf" EXIT
 
 st() {

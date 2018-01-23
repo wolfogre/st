@@ -3,8 +3,13 @@
 
 FUNC=$1
 
-if [ -z $FUNC ]; then
+if [[ -z $FUNC ]]; then
 	read -p "which function?" FUNC
+fi
+
+if [[ -z $ST_TEMP ]]; then
+	echo 'can not find $ST_TEMP'
+	exit 1
 fi
 
 AIM=$ST_TEMP/$FUNC.sh
