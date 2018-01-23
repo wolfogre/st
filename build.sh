@@ -23,9 +23,8 @@ BUILD_TIME=`date`
 
 rm -rf index.sh
 echo '''
-rm /tmp/st_cache_$USER -rf
-mkdir /tmp/st_cache_$USER
-trap "rm /tmp/st_cache_$USER -rf" EXIT
+TEMPDIR=`mktemp -d "/tmp/st.tmp.XXXXX"`
+trap "rm $TEMPDIR -rf" EXIT
 
 st() {
 
@@ -61,14 +60,14 @@ cat $HELP_TMP | egrep "^  $INTERNAL_FUNC" >> index.sh
 echo "" >> index.sh
 cat $HELP_TMP | egrep "^  $INTERNAL_FUNC" -v >> index.sh
 
-#rm -f $HELP_TMP
+rm -f $HELP_TMP
 
 echo -e '''
 "
 ;;
 
 *)
-AIM=/tmp/st_cache_$USER/$1.sh
+AIM=/tmp/$TEMPDIR/$1.sh
 if [ ! -f $AIM ]; then
 	printf "loading $1 ... "
 	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh` != "200" ]]; then

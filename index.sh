@@ -1,7 +1,6 @@
 
-rm /tmp/st_cache_$USER -rf
-mkdir /tmp/st_cache_$USER
-trap "rm /tmp/st_cache_$USER -rf" EXIT
+TEMPDIR=`mktemp -d "/tmp/st.tmp.XXXXX"`
+trap "rm $TEMPDIR -rf" EXIT
 
 st() {
 
@@ -14,7 +13,7 @@ fi
 case $ARGS1 in
 
 version)
-echo st version 0.4.33, build time Tue Jan 23 13:55:02 CST 2018
+echo st version 0.5.1, build time Tue Jan 23 14:11:40 CST 2018
 ;;
 
 help)
@@ -37,7 +36,7 @@ echo -e "
 ;;
 
 *)
-AIM=/tmp/st_cache_$USER/$1.sh
+AIM=/tmp/$TEMPDIR/$1.sh
 if [ ! -f $AIM ]; then
 	printf "loading $1 ... "
 	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh` != "200" ]]; then
