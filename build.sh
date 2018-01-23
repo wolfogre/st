@@ -23,8 +23,13 @@ BUILD_TIME=`date`
 
 rm -rf index.sh
 echo '''
-TEMPDIR=`mktemp -d "/tmp/st.tmp.XXXXX"`
-trap "rm $TEMPDIR -rf" EXIT
+if [[ -n "$ST_TEMP" ]]; then
+	rm $ST_TEMP -rf
+fi
+
+
+ST_TEMP=`mktemp -d "/tmp/st.tmp.XXXXX"`
+trap "rm $ST_TEMP -rf" EXIT
 
 st() {
 
@@ -67,7 +72,7 @@ echo -e '''
 ;;
 
 *)
-AIM=/tmp/$TEMPDIR/$1.sh
+AIM=/tmp/$ST_TEMP/$1.sh
 if [ ! -f $AIM ]; then
 	printf "loading $1 ... "
 	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh` != "200" ]]; then
