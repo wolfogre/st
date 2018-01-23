@@ -1,6 +1,8 @@
 
 rm /tmp/st_cache_$USER -rf
 mkdir /tmp/st_cache_$USER
+trap "rm /tmp/st_cache_$USER -rf" EXIT
+
 st() {
 
 ARGS1=$1
@@ -12,7 +14,7 @@ fi
 case $ARGS1 in
 
 version)
-echo st version 0.4.32, build time Tue Dec 19 09:53:58 CST 2017
+echo st version 0.4.33, build time Tue Jan 23 13:55:02 CST 2018
 ;;
 
 help)

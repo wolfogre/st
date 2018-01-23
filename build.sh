@@ -25,6 +25,8 @@ rm -rf index.sh
 echo '''
 rm /tmp/st_cache_$USER -rf
 mkdir /tmp/st_cache_$USER
+trap "rm /tmp/st_cache_$USER -rf" EXIT
+
 st() {
 
 ARGS1=$1
