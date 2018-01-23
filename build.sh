@@ -72,7 +72,7 @@ echo -e '''
 ;;
 
 *)
-AIM=/tmp/$ST_TEMP/$1.sh
+AIM=$ST_TEMP/$1.sh
 if [ ! -f $AIM ]; then
 	printf "loading $1 ... "
 	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh` != "200" ]]; then

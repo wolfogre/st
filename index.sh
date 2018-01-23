@@ -18,7 +18,7 @@ fi
 case $ARGS1 in
 
 version)
-echo st version 0.5.2, build time Tue Jan 23 14:14:48 CST 2018
+echo st version 0.5.3, build time Tue Jan 23 14:31:54 CST 2018
 ;;
 
 help)
@@ -41,7 +41,7 @@ echo -e "
 ;;
 
 *)
-AIM=/tmp/$ST_TEMP/$1.sh
+AIM=$ST_TEMP/$1.sh
 if [ ! -f $AIM ]; then
 	printf "loading $1 ... "
 	if [[ `curl -s -o $AIM -w "%{http_code}" st.wolfogre.com/func/$1.sh` != "200" ]]; then
