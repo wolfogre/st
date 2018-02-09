@@ -28,18 +28,19 @@ Close you session and `st` disappear without anything left.
 ```
 
 
-  clean           clean local functions cache
-  help            show help infomations
-  show            show function detail
-  version         show st version
+  help                 show help infomations
+  version              show st version
 
-  adjust-time     adjust date time
-  count-conn      count connections of specified port
-  install-docker  install docker-ce and set mirror acceleration address
-  install-go      install various version of golang
-  install-svn     install svn 1.7, 1.8 or 1.9
-  install-zmq     install zeromq 4.1.2
-  locate-ip       locate ip region
+  func/adjust-time     adjust date time
+  func/clean           clean local functions cache
+  func/count-conn      count connections of specified port
+  func/dev             developing tools for st
+  func/install-docker  install docker-ce and set mirror acceleration address
+  func/install-go      install various version of golang
+  func/install-svn     install svn 1.7, 1.8 or 1.9
+  func/install-zmq     install zeromq 4.1.2
+  func/locate-ip       locate ip region
+  func/show            show function detail
 
 
 ```

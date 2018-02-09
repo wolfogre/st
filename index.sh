@@ -4,7 +4,7 @@ if [[ -n "$ST_TEMP" ]]; then
 fi
 
 
-export ST_TEMP=`mktemp -d "/tmp/st.tmp.XXXXX"`
+export ST_TEMP=$(mktemp -d "/tmp/st.tmp.XXXXX")
 trap "rm $ST_TEMP -rf" EXIT
 
 st() {
@@ -18,24 +18,25 @@ fi
 case $ARGS1 in
 
 version)
-echo st version 0.5.5, build time Tue Jan 23 14:41:12 CST 2018
+echo st version 0.5.7, build time Fri Feb 9 15:17:39 CST 2018
 ;;
 
 help)
 echo -e "
 
-  clean           clean local functions cache
-  help            show help infomations
-  show            show function detail
-  version         show st version
+  help                 show help infomations
+  version              show st version
 
-  adjust-time     adjust date time
-  count-conn      count connections of specified port
-  install-docker  install docker-ce and set mirror acceleration address
-  install-go      install various version of golang
-  install-svn     install svn 1.7, 1.8 or 1.9
-  install-zmq     install zeromq 4.1.2
-  locate-ip       locate ip region
+  func/adjust-time     adjust date time
+  func/clean           clean local functions cache
+  func/count-conn      count connections of specified port
+  func/dev             developing tools for st
+  func/install-docker  install docker-ce and set mirror acceleration address
+  func/install-go      install various version of golang
+  func/install-svn     install svn 1.7, 1.8 or 1.9
+  func/install-zmq     install zeromq 4.1.2
+  func/locate-ip       locate ip region
+  func/show            show function detail
 
 "
 ;;
