@@ -52,12 +52,14 @@ echo -e "
 HELP_TMP=$(mktemp)
 echo -e "\tversion\tshow st version" >> "$HELP_TMP"
 echo -e "\thelp\tshow help infomations" >> "$HELP_TMP"
-for v in  func/*; do
+pushd func
+for v in *; do
 	if [[ $v = "dev.sh" ]]; then
 		continue
 	fi
 	echo -e "\t${v%.*}\t""$(head -n 2 "$v" | tail -n 1 | sed "s/#//")" >> "$HELP_TMP"
 done
+popd
 
 column -t -s $'\t' "$HELP_TMP" | sort -o "$HELP_TMP"
 INTERNAL_FUNC="(show|version|help|clean)"
