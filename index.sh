@@ -18,7 +18,7 @@ fi
 case $ARGS1 in
 
 version)
-echo st version 0.6.1, build time Tue Feb 20 20:54:34 CST 2018
+echo st version 0.6.2, build time Fri Apr 13 17:07:48 CST 2018
 ;;
 
 help)

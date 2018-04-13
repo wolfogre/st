@@ -28,7 +28,7 @@ if [ -d /usr/local/go${VERSION} ]; then
 fi
 cd `mktemp -d`
 
-wget http://golang.download.wolfogre.com/go${VERSION}.linux-amd64.tar.gz
+wget https://dl.google.com/go/go${VERSION}.linux-amd64.tar.gz
 
 tar zxf go${VERSION}.linux-amd64.tar.gz
 
